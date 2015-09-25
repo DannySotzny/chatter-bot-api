@@ -86,7 +86,8 @@ namespace ChatterBotAPI
             var postDataBytes = Encoding.ASCII.GetBytes(postData);
 
             var request = (HttpWebRequest)WebRequest.Create(url);
-
+            WebProxy myproxy = new WebProxy("10.10.0.250", 8080);
+            request.Proxy = myproxy;
             if (cookies != null)
             {
                 var container = new CookieContainer();
